@@ -1,95 +1,607 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>textsnip.io - Your Snippet Companion</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f4f6f8;
-      color: #333;
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    header {
-      background-color: #1e293b;
-      color: #fff;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-    }
-
-    main {
-      flex: 1;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    main h2 {
-      margin-bottom: 1rem;
-      font-size: 1.75rem;
-    }
-
-    main p {
-      font-size: 1rem;
-      color: #555;
-    }
-
-    footer {
-      background-color: #1e293b;
-      color: #ccc;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-
-    .button {
-      background-color: #3b82f6;
-      color: #fff;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      margin-top: 2rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .button:hover {
-      background-color: #2563eb;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextSnip - Your Ultimate Code Snippet Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>textsnip.io</h1>
-    <p>Quickly save, edit, and access your code snippets in one click</p>
-  </header>
+    <!-- Particle Background -->
+    <div id="particles-container"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <div class="logo-inner">📝</div>
+                </div>
+                <span class="logo-text">TextSnip</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#showcase" class="nav-link">Showcase</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <button class="install-btn">
+                    <span class="btn-glow"></span>
+                    <span class="btn-text">Install Now</span>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-  <main>
-    <h2>Minimal. Handy. Productive.</h2>
-    <p>
-      TextSnip is your smart snippet manager – built for developers, writers, and productivity nerds. <br/>
-      Say goodbye to cluttered files and scattered notes.
-    </p>
-  </main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-gradient"></div>
+        <div class="floating-elements">
+            <div class="floating-card" data-speed="0.5">
+                <div class="card-content">
+                    <div class="card-icon">⚡</div>
+                    <div class="card-text">Lightning Fast</div>
+                </div>
+            </div>
+            <div class="floating-card" data-speed="0.3">
+                <div class="card-content">
+                    <div class="card-icon">🎨</div>
+                    <div class="card-text">Beautiful UI</div>
+                </div>
+            </div>
+            <div class="floating-card" data-speed="0.7">
+                <div class="card-content">
+                    <div class="card-icon">🔒</div>
+                    <div class="card-text">100% Private</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">🚀</span>
+                    <span>Free Forever • No Account Required</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="title-line">Your Ultimate</span>
+                    <span class="title-line gradient-text">Code Snippet</span>
+                    <span class="title-line">Manager</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Transform your development workflow with the most beautiful and powerful browser extension for managing code snippets. Lightning-fast, secure, and completely free.
+                </p>
+                
+                <div class="hero-buttons">
+                    <button class="btn-primary install-main">
+                        <span class="btn-bg"></span>
+                        <span class="btn-content">
+                            <span class="btn-icon">⚡</span>
+                            <span class="btn-text">Install Free Extension</span>
+                        </span>
+                    </button>
+                    <button class="btn-secondary demo-btn">
+                        <span class="btn-content">
+                            <span class="btn-icon">▶️</span>
+                            <span class="btn-text">Watch Demo</span>
+                        </span>
+                    </button>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="15000">0</div>
+                        <div class="stat-label">Active Users</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="75000">0</div>
+                        <div class="stat-label">Snippets Saved</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="4.9">0</div>
+                        <div class="stat-label">★ Rating</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="device-mockup">
+                    <div class="device-frame">
+                        <div class="device-screen">
+                            <div class="app-interface">
+                                <div class="app-header">
+                                    <div class="app-title">TextSnip</div>
+                                    <div class="app-controls">
+                                        <div class="control-btn"></div>
+                                        <div class="control-btn"></div>
+                                        <div class="control-btn"></div>
+                                    </div>
+                                </div>
+                                <div class="app-content">
+                                    <div class="snippet-item active">
+                                        <div class="snippet-header">
+                                            <div class="snippet-title">React Hook</div>
+                                            <div class="snippet-tag">JavaScript</div>
+                                        </div>
+                                        <div class="snippet-preview">
+                                            <div class="code-line">const useDebounce = (value, delay) => {</div>
+                                            <div class="code-line">  const [debouncedValue, setDebouncedValue]</div>
+                                            <div class="code-line">  = useState(value);</div>
+                                            <div class="code-line">  // Implementation...</div>
+                                            <div class="code-line">};</div>
+                                        </div>
+                                    </div>
+                                    <div class="snippet-item">
+                                        <div class="snippet-header">
+                                            <div class="snippet-title">CSS Utility</div>
+                                            <div class="snippet-tag">CSS</div>
+                                        </div>
+                                        <div class="snippet-preview">
+                                            <div class="code-line">.flex-center {</div>
+                                            <div class="code-line">  display: flex;</div>
+                                            <div class="code-line">  align-items: center;</div>
+                                            <div class="code-line">}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    &copy; 2025 textsnip.io &mdash; Built with ❤️ for the web
-  </footer>
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Features</div>
+                <h2 class="section-title">Why Developers Choose TextSnip</h2>
+                <p class="section-subtitle">Powerful features designed for modern development workflows</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card" data-tilt>
+                    <div class="feature-bg"></div>
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <div class="icon-bg"></div>
+                            <span>⚡</span>
+                        </div>
+                        <h3 class="feature-title">Lightning Fast</h3>
+                        <p class="feature-description">Access your snippets instantly with one-click saving and lightning-fast search powered by advanced indexing.</p>
+                        <div class="feature-highlight">
+                            <span class="highlight-text">< 50ms response time</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-tilt>
+                    <div class="feature-bg"></div>
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <div class="icon-bg"></div>
+                            <span>🎨</span>
+                        </div>
+                        <h3 class="feature-title">Beautiful Themes</h3>
+                        <p class="feature-description">Choose from 6 stunning themes including Dark, Cyberpunk, Ocean, Forest, and Sunset modes.</p>
+                        <div class="theme-preview">
+                            <div class="theme-dot" style="background: #1a1a1a"></div>
+                            <div class="theme-dot" style="background: #0ea5e9"></div>
+                            <div class="theme-dot" style="background: #10b981"></div>
+                            <div class="theme-dot" style="background: #f59e0b"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-tilt>
+                    <div class="feature-bg"></div>
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <div class="icon-bg"></div>
+                            <span>🔒</span>
+                        </div>
+                        <h3 class="feature-title">100% Private</h3>
+                        <p class="feature-description">Your snippets stay local. No cloud dependency, no tracking, complete privacy and security.</p>
+                        <div class="security-badge">
+                            <span class="security-icon">🛡️</span>
+                            <span>Zero Data Collection</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-tilt>
+                    <div class="feature-bg"></div>
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <div class="icon-bg"></div>
+                            <span>🏷️</span>
+                        </div>
+                        <h3 class="feature-title">Smart Organization</h3>
+                        <p class="feature-description">Custom tags, favorites, and intelligent filtering with AI-powered categorization.</p>
+                        <div class="tag-demo">
+                            <span class="demo-tag">React</span>
+                            <span class="demo-tag">Utils</span>
+                            <span class="demo-tag">CSS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-tilt>
+                    <div class="feature-bg"></div>
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <div class="icon-bg"></div>
+                            <span>💾</span>
+                        </div>
+                        <h3 class="feature-title">Export & Import</h3>
+                        <p class="feature-description">Full data control with export/import functionality and automatic timestamped backups.</p>
+                        <div class="backup-indicator">
+                            <div class="backup-dot"></div>
+                            <span>Auto-backup enabled</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-tilt>
+                    <div class="feature-bg"></div>
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <div class="icon-bg"></div>
+                            <span>🎯</span>
+                        </div>
+                        <h3 class="feature-title">Rich Editor</h3>
+                        <p class="feature-description">Advanced code editor with intelligent formatting for all major programming languages.</p>
+                        <div class="language-support">
+                            <span class="lang-badge">JS</span>
+                            <span class="lang-badge">TS</span>
+                            <span class="lang-badge">CSS</span>
+                            <span class="lang-badge">+20</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Showcase -->
+    <section id="showcase" class="showcase">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Interactive Demo</div>
+                <h2 class="section-title">See TextSnip in Action</h2>
+                <p class="section-subtitle">Experience the power and simplicity of TextSnip</p>
+            </div>
+            
+            <div class="demo-container">
+                <div class="demo-tabs">
+                    <button class="demo-tab active" data-tab="save">Save Snippet</button>
+                    <button class="demo-tab" data-tab="search">Quick Search</button>
+                    <button class="demo-tab" data-tab="organize">Organize</button>
+                </div>
+                
+                <div class="demo-content">
+                    <div class="demo-panel active" id="save-panel">
+                        <div class="demo-browser">
+                            <div class="browser-bar">
+                                <div class="browser-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="browser-url">github.com/awesome-project</div>
+                            </div>
+                            <div class="browser-content">
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span>utils.js</span>
+                                        <button class="save-btn">
+                                            <span class="save-icon">📝</span>
+                                            Save to TextSnip
+                                        </button>
+                                    </div>
+                                    <div class="code-content">
+                                        <div class="code-line">function debounce(func, wait) {</div>
+                                        <div class="code-line">  let timeout;</div>
+                                        <div class="code-line">  return function executedFunction(...args) {</div>
+                                        <div class="code-line">    const later = () => {</div>
+                                        <div class="code-line">      clearTimeout(timeout);</div>
+                                        <div class="code-line">      func(...args);</div>
+                                        <div class="code-line">    };</div>
+                                        <div class="code-line">    clearTimeout(timeout);</div>
+                                        <div class="code-line">    timeout = setTimeout(later, wait);</div>
+                                        <div class="code-line">  };</div>
+                                        <div class="code-line">}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-panel" id="search-panel">
+                        <div class="search-demo">
+                            <div class="search-bar">
+                                <div class="search-icon">🔍</div>
+                                <input type="text" placeholder="Search snippets..." class="search-input">
+                            </div>
+                            <div class="search-results">
+                                <div class="search-result">
+                                    <div class="result-title">Debounce Function</div>
+                                    <div class="result-tags">
+                                        <span class="result-tag">JavaScript</span>
+                                        <span class="result-tag">Utils</span>
+                                    </div>
+                                    <div class="result-preview">function debounce(func, wait) { ... }</div>
+                                </div>
+                                <div class="search-result">
+                                    <div class="result-title">Throttle Function</div>
+                                    <div class="result-tags">
+                                        <span class="result-tag">JavaScript</span>
+                                        <span class="result-tag">Performance</span>
+                                    </div>
+                                    <div class="result-preview">function throttle(func, limit) { ... }</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-panel" id="organize-panel">
+                        <div class="organize-demo">
+                            <div class="folder-structure">
+                                <div class="folder">
+                                    <div class="folder-header">
+                                        <span class="folder-icon">📁</span>
+                                        <span class="folder-name">JavaScript</span>
+                                        <span class="folder-count">12</span>
+                                    </div>
+                                    <div class="folder-items">
+                                        <div class="folder-item">
+                                            <span class="item-icon">📄</span>
+                                            <span class="item-name">Debounce Function</span>
+                                        </div>
+                                        <div class="folder-item">
+                                            <span class="item-icon">📄</span>
+                                            <span class="item-name">API Helper</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="folder">
+                                    <div class="folder-header">
+                                        <span class="folder-icon">📁</span>
+                                        <span class="folder-name">CSS</span>
+                                        <span class="folder-count">8</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Comparison</div>
+                <h2 class="section-title">TextSnip vs Others</h2>
+                <p class="section-subtitle">See why TextSnip is the superior choice</p>
+            </div>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card winner">
+                    <div class="card-badge">Recommended</div>
+                    <div class="card-header">
+                        <div class="card-logo">📝</div>
+                        <div class="card-title">TextSnip</div>
+                    </div>
+                    <div class="card-features">
+                        <div class="feature-item">
+                            <span class="feature-check">✅</span>
+                            <span>One-click browser access</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-check">✅</span>
+                            <span>6 beautiful themes</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-check">✅</span>
+                            <span>100% local storage</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-check">✅</span>
+                            <span>Lightning fast search</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-check">✅</span>
+                            <span>Free forever</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="comparison-card">
+                    <div class="card-header">
+                        <div class="card-logo">📋</div>
+                        <div class="card-title">Other Tools</div>
+                    </div>
+                    <div class="card-features">
+                        <div class="feature-item">
+                            <span class="feature-cross">❌</span>
+                            <span>Need separate apps</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-cross">❌</span>
+                            <span>Basic interfaces</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-cross">❌</span>
+                            <span>Cloud dependency</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-cross">❌</span>
+                            <span>Slow performance</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-cross">❌</span>
+                            <span>Subscription required</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Pricing</div>
+                <h2 class="section-title">Simple, Transparent Pricing</h2>
+                <p class="section-subtitle">Powerful tools should be accessible to everyone</p>
+            </div>
+            
+            <div class="pricing-card">
+                <div class="pricing-glow"></div>
+                <div class="pricing-badge">Most Popular</div>
+                <div class="pricing-header">
+                    <div class="pricing-icon">📝</div>
+                    <h3 class="pricing-title">TextSnip Pro</h3>
+                    <div class="pricing-price">
+                        <span class="price-currency">$</span>
+                        <span class="price-amount">0</span>
+                        <span class="price-period">/forever</span>
+                    </div>
+                    <div class="pricing-subtitle">No hidden costs, no subscriptions</div>
+                </div>
+                
+                <div class="pricing-features">
+                    <div class="pricing-feature">
+                        <span class="feature-icon">✅</span>
+                        <span>Unlimited snippets</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="feature-icon">✅</span>
+                        <span>6 beautiful themes</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="feature-icon">✅</span>
+                        <span>Smart organization</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="feature-icon">✅</span>
+                        <span>Export/Import data</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="feature-icon">✅</span>
+                        <span>Advanced search</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="feature-icon">✅</span>
+                        <span>100% private & secure</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="feature-icon">✅</span>
+                        <span>No ads, no tracking</span>
+                    </div>
+                </div>
+                
+                <button class="pricing-btn">
+                    <span class="btn-bg"></span>
+                    <span class="btn-content">
+                        <span class="btn-icon">🚀</span>
+                        <span>Install Now - It's Free!</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-bg"></div>
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-icon">🚀</div>
+                <h2 class="cta-title">Ready to Transform Your Workflow?</h2>
+                <p class="cta-subtitle">Join thousands of developers who have streamlined their coding with TextSnip</p>
+                
+                <button class="cta-btn">
+                    <span class="btn-bg"></span>
+                    <span class="btn-content">
+                        <span class="btn-icon">⚡</span>
+                        <span class="btn-text">Install TextSnip Now</span>
+                    </span>
+                </button>
+                
+                <div class="cta-features">
+                    <div class="cta-feature">
+                        <span class="feature-icon">🆓</span>
+                        <span>Free forever</span>
+                    </div>
+                    <div class="cta-feature">
+                        <span class="feature-icon">⚡</span>
+                        <span>Install in seconds</span>
+                    </div>
+                    <div class="cta-feature">
+                        <span class="feature-icon">🔒</span>
+                        <span>No account required</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon">📝</span>
+                        <span class="logo-text">TextSnip</span>
+                    </div>
+                    <p class="footer-description">The ultimate code snippet manager for developers</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4 class="footer-title">Product</h4>
+                        <a href="#" class="footer-link">Features</a>
+                        <a href="#" class="footer-link">Pricing</a>
+                        <a href="#" class="footer-link">Download</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-title">Support</h4>
+                        <a href="#" class="footer-link">Documentation</a>
+                        <a href="#" class="footer-link">Help Center</a>
+                        <a href="#" class="footer-link">Contact</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-title">Legal</h4>
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="#" class="footer-link">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 textsnip.io — Built with ❤️ for developers</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link">🐦</a>
+                    <a href="#" class="social-link">📧</a>
+                    <a href="#" class="social-link">💬</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
