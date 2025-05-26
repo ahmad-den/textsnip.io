@@ -1,356 +1,6 @@
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault()
-    const target = document.querySelector(this.getAttribute("href"))
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      })
-    }
-  })
-})
+// Enhanced JavaScript with better performance and accessibility
 
-// Navbar scroll effect
-let lastScrollY = window.scrollY
-const navbar = document.querySelector(".navbar")
-
-window.addEventListener("scroll", () => {
-  const currentScrollY = window.scrollY
-
-  if (currentScrollY > 100) {
-    navbar.classList.add("scrolled")
-  } else {
-    navbar.classList.remove("scrolled")
-  }
-
-  // Hide/show navbar on scroll
-  if (currentScrollY > lastScrollY && currentScrollY > 100) {
-    navbar.style.transform = "translateY(-100%)"
-  } else {
-    navbar.style.transform = "translateY(0)"
-  }
-
-  lastScrollY = currentScrollY
-})
-
-// Mobile menu toggle
-const hamburger = document.querySelector(".hamburger")
-const navMenu = document.querySelector(".nav-menu")
-
-hamburger?.addEventListener("click", () => {
-  hamburger.classList.toggle("active")
-  navMenu.classList.toggle("active")
-})
-
-// Install button functionality with enhanced animation
-const installButtons = document.querySelectorAll(".install-btn, .install-main, .pricing-btn, .cta-btn")
-
-installButtons.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    e.preventDefault()
-
-    // Create ripple effect
-    const ripple = document.createElement("span")
-    const rect = button.getBoundingClientRect()
-    const size = Math.max(rect.width, rect.height)
-    const x = e.clientX - rect.left - size / 2
-    const y = e.clientY - rect.top - size / 2
-
-    ripple.style.cssText = `
-      position: absolute;
-      width: ${size}px;
-      height: ${size}px;
-      left: ${x}px;
-      top: ${y}px;
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      transform: scale(0);
-      animation: ripple 0.6s linear;
-      pointer-events: none;
-    `
-
-    button.style.position = "relative"
-    button.style.overflow = "hidden"
-    button.appendChild(ripple)
-
-    // Update button text
-    const originalText = button.innerHTML
-    button.innerHTML =
-      '<span class="btn-content"><span class="btn-icon">✅</span><span>Opening Extension Store...</span></span>'
-
-    setTimeout(() => {
-      ripple.remove()
-      // In a real scenario, this would open the browser extension store
-      window.open("https://chrome.google.com/webstore", "_blank")
-
-      setTimeout(() => {
-        button.innerHTML = originalText
-      }, 2000)
-    }, 1000)
-  })
-})
-
-// Add ripple animation CSS
-const rippleCSS = `
-  @keyframes ripple {
-    to {
-      transform: scale(4);
-      opacity: 0;
-    }
-  }
-`
-
-const style = document.createElement("style")
-style.textContent = rippleCSS
-document.head.appendChild(style)
-
-// Demo button functionality
-const demoBtn = document.querySelector(".demo-btn")
-if (demoBtn) {
-  demoBtn.addEventListener("click", () => {
-    // Create modal overlay
-    const modal = document.createElement("div")
-    modal.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10000;
-      backdrop-filter: blur(10px);
-    `
-
-    const modalContent = document.createElement("div")
-    modalContent.style.cssText = `
-      background: white;
-      padding: 3rem;
-      border-radius: 20px;
-      text-align: center;
-      max-width: 500px;
-      margin: 20px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    `
-
-    modalContent.innerHTML = `
-      <div style="font-size: 3rem; margin-bottom: 1rem;">🎥</div>
-      <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #0f172a;">Demo Video Coming Soon!</h3>
-      <p style="color: #64748b; margin-bottom: 2rem;">We're preparing an amazing demo video to show you all the features of TextSnip in action.</p>
-      <button onclick="this.closest('.modal').remove()" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 600; cursor: pointer;">Close</button>
-    `
-
-    modal.className = "modal"
-    modal.appendChild(modalContent)
-    document.body.appendChild(modal)
-
-    // Close modal on outside click
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.remove()
-      }
-    })
-  })
-}
-
-// Search demo functionality
-const searchInput = document.querySelector(".search-input")
-if (searchInput) {
-  searchInput.addEventListener("input", (e) => {
-    const query = e.target.value.toLowerCase()
-    const results = document.querySelectorAll(".search-result")
-
-    results.forEach((result) => {
-      const title = result.querySelector(".result-title").textContent.toLowerCase()
-      const preview = result.querySelector(".result-preview").textContent.toLowerCase()
-
-      if (title.includes(query) || preview.includes(query) || query === "") {
-        result.style.display = "block"
-        result.style.animation = "fadeInUp 0.3s ease"
-      } else {
-        result.style.display = "none"
-      }
-    })
-  })
-}
-
-// Save button demo animation
-const saveBtn = document.querySelector(".save-btn")
-if (saveBtn) {
-  saveBtn.addEventListener("click", () => {
-    const originalText = saveBtn.innerHTML
-    saveBtn.innerHTML = '<span class="save-icon">✅</span> Saved!'
-    saveBtn.style.background = "linear-gradient(135deg, #10b981 0%, #059669 100%)"
-
-    setTimeout(() => {
-      saveBtn.innerHTML = originalText
-      saveBtn.style.background = "linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)"
-    }, 2000)
-  })
-}
-
-// Parallax effect for floating elements
-window.addEventListener("scroll", () => {
-  const scrolled = window.pageYOffset
-  const parallaxElements = document.querySelectorAll(".floating-card")
-
-  parallaxElements.forEach((element) => {
-    const speed = element.dataset.speed || 0.5
-    const yPos = -(scrolled * speed)
-    element.style.transform = `translateY(${yPos}px)`
-  })
-})
-
-// Enhanced hover effects for cards
-document.querySelectorAll(".feature-card, .comparison-card").forEach((card) => {
-  card.addEventListener("mouseenter", () => {
-    card.style.transform = "translateY(-8px) scale(1.02)"
-  })
-
-  card.addEventListener("mouseleave", () => {
-    card.style.transform = "translateY(0) scale(1)"
-  })
-})
-
-// Folder demo interaction
-document.querySelectorAll(".folder-header").forEach((header) => {
-  header.addEventListener("click", () => {
-    const folder = header.parentElement
-    const items = folder.querySelector(".folder-items")
-
-    if (items.style.display === "none" || !items.style.display) {
-      items.style.display = "block"
-      items.style.animation = "fadeInUp 0.3s ease"
-      header.querySelector(".folder-icon").textContent = "📂"
-    } else {
-      items.style.display = "none"
-      header.querySelector(".folder-icon").textContent = "📁"
-    }
-  })
-})
-
-// Theme switcher with enhanced animation
-const createThemeSwitcher = () => {
-  const switcher = document.createElement("button")
-  switcher.innerHTML = "🌙"
-  switcher.style.cssText = `
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: none;
-    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
-    z-index: 1000;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(10px);
-  `
-
-  switcher.addEventListener("click", () => {
-    document.body.classList.toggle("dark-theme")
-    switcher.innerHTML = document.body.classList.contains("dark-theme") ? "☀️" : "🌙"
-    switcher.style.transform = "scale(1.1) rotate(180deg)"
-
-    setTimeout(() => {
-      switcher.style.transform = "scale(1) rotate(0deg)"
-    }, 300)
-  })
-
-  switcher.addEventListener("mouseenter", () => {
-    switcher.style.transform = "scale(1.1)"
-    switcher.style.boxShadow = "0 15px 35px rgba(99, 102, 241, 0.4)"
-  })
-
-  switcher.addEventListener("mouseleave", () => {
-    switcher.style.transform = "scale(1)"
-    switcher.style.boxShadow = "0 10px 25px rgba(99, 102, 241, 0.3)"
-  })
-
-  document.body.appendChild(switcher)
-}
-
-// Initialize theme switcher
-createThemeSwitcher()
-
-// Dark theme styles
-const darkThemeStyles = `
-  .dark-theme {
-    --bg-primary: #0f172a;
-    --bg-secondary: #1e293b;
-    --bg-tertiary: #334155;
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --text-light: #94a3b8;
-    --border-color: #334155;
-    --border-light: #475569;
-    --bg-card: rgba(30, 41, 59, 0.8);
-  }
-  
-  .dark-theme .navbar {
-    background: rgba(15, 23, 42, 0.9);
-    border-bottom-color: #334155;
-  }
-  
-  .dark-theme .hero-bg-gradient {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-  }
-  
-  .dark-theme .feature-card,
-  .dark-theme .comparison-card,
-  .dark-theme .pricing-card {
-    background: rgba(30, 41, 59, 0.8);
-    border-color: #334155;
-  }
-  
-  .dark-theme .demo-container {
-    background: #1e293b;
-    border-color: #334155;
-  }
-  
-  .dark-theme .demo-tab {
-    background: #334155;
-    color: #cbd5e1;
-  }
-  
-  .dark-theme .demo-tab.active {
-    background: #1e293b;
-    color: #f8fafc;
-  }
-  
-  .dark-theme .search-bar {
-    background: #1e293b;
-    border-color: #334155;
-  }
-  
-  .dark-theme .search-result {
-    background: #1e293b;
-    border-color: #334155;
-  }
-  
-  .dark-theme .folder {
-    background: #1e293b;
-    border-color: #334155;
-  }
-  
-  .dark-theme .folder-header {
-    background: #334155;
-  }
-`
-
-const darkStyleSheet = document.createElement("style")
-darkStyleSheet.textContent = darkThemeStyles
-document.head.appendChild(darkStyleSheet)
-
-// Performance optimization: Debounce scroll events
+// Utility functions
 const debounce = (func, wait) => {
   let timeout
   return function executedFunction(...args) {
@@ -363,104 +13,87 @@ const debounce = (func, wait) => {
   }
 }
 
-// Apply debouncing to scroll events
-window.addEventListener(
-  "scroll",
-  debounce(() => {
-    // Scroll-based animations here
-  }, 16),
-) // ~60fps
+const throttle = (func, limit) => {
+  let inThrottle
+  return function () {
+    const args = arguments
 
-// Preload critical images
-const preloadImages = () => {
-  const imageUrls = [
-    "/placeholder.svg?height=400&width=600&query=code+editor+interface",
-    "/placeholder.svg?height=300&width=400&query=browser+extension+popup",
-  ]
+    if (!inThrottle) {
+      func.apply(this, args)
+      inThrottle = true
+      setTimeout(() => (inThrottle = false), limit)
+    }
+  }
+}
 
-  imageUrls.forEach((url) => {
-    const img = new Image()
-    img.src = url
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault()
+    const target = document.querySelector(this.getAttribute("href"))
+    if (target) {
+      const headerOffset = 100
+      const elementPosition = target.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      })
+    }
+  })
+})
+
+// Enhanced navbar scroll effect
+const navbar = document.querySelector(".navbar")
+const handleScroll = throttle(() => {
+  if (window.scrollY > 100) {
+    navbar.classList.add("scrolled")
+  } else {
+    navbar.classList.remove("scrolled")
+  }
+}, 10)
+
+window.addEventListener("scroll", handleScroll)
+
+// Mobile menu toggle with accessibility
+const hamburger = document.querySelector(".hamburger")
+const navMenu = document.querySelector(".nav-menu")
+
+if (hamburger && navMenu) {
+  hamburger.addEventListener("click", () => {
+    const isExpanded = hamburger.getAttribute("aria-expanded") === "true"
+
+    hamburger.classList.toggle("active")
+    navMenu.classList.toggle("active")
+    hamburger.setAttribute("aria-expanded", !isExpanded)
+
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = navMenu.classList.contains("active") ? "hidden" : ""
+  })
+
+  // Close mobile menu when clicking on a link
+  document.querySelectorAll(".nav-link").forEach((link) =>
+    link.addEventListener("click", () => {
+      hamburger.classList.remove("active")
+      navMenu.classList.remove("active")
+      hamburger.setAttribute("aria-expanded", "false")
+      document.body.style.overflow = ""
+    }),
+  )
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+      hamburger.classList.remove("active")
+      navMenu.classList.remove("active")
+      hamburger.setAttribute("aria-expanded", "false")
+      document.body.style.overflow = ""
+    }
   })
 }
 
-// Initialize preloading
-preloadImages()
-
-// Add loading animation for the entire page
-window.addEventListener("load", () => {
-  document.body.classList.add("loaded")
-
-  // Trigger entrance animations
-  setTimeout(() => {
-    document.querySelectorAll(".hero-content > *").forEach((el, index) => {
-      el.style.animationDelay = `${index * 0.1}s`
-      el.classList.add("animate-in")
-    })
-  }, 100)
-})
-
-// Particle system
-class ParticleSystem {
-  constructor() {
-    this.particles = []
-    this.container = document.getElementById("particles-container")
-    this.init()
-  }
-
-  init() {
-    for (let i = 0; i < 50; i++) {
-      this.createParticle()
-    }
-    this.animate()
-  }
-
-  createParticle() {
-    const particle = document.createElement("div")
-    particle.className = "particle"
-
-    const size = Math.random() * 4 + 2
-    const x = Math.random() * window.innerWidth
-    const y = Math.random() * window.innerHeight
-    const duration = Math.random() * 10 + 5
-
-    particle.style.width = `${size}px`
-    particle.style.height = `${size}px`
-    particle.style.left = `${x}px`
-    particle.style.top = `${y}px`
-    particle.style.animationDuration = `${duration}s`
-    particle.style.animationDelay = `${Math.random() * 5}s`
-
-    this.container.appendChild(particle)
-    this.particles.push({
-      element: particle,
-      x: x,
-      y: y,
-      vx: (Math.random() - 0.5) * 0.5,
-      vy: (Math.random() - 0.5) * 0.5,
-    })
-  }
-
-  animate() {
-    this.particles.forEach((particle) => {
-      particle.x += particle.vx
-      particle.y += particle.vy
-
-      if (particle.x < 0 || particle.x > window.innerWidth) particle.vx *= -1
-      if (particle.y < 0 || particle.y > window.innerHeight) particle.vy *= -1
-
-      particle.element.style.left = `${particle.x}px`
-      particle.element.style.top = `${particle.y}px`
-    })
-
-    requestAnimationFrame(() => this.animate())
-  }
-}
-
-// Initialize particle system
-new ParticleSystem()
-
-// Intersection Observer for animations
+// Enhanced Intersection Observer for animations
 const observerOptions = {
   threshold: 0.1,
   rootMargin: "0px 0px -50px 0px",
@@ -469,81 +102,437 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add("loaded")
+      entry.target.classList.add("fade-in-up")
 
-      // Trigger stats animation when hero section is visible
-      if (entry.target.classList.contains("hero")) {
-        setTimeout(animateStats, 500)
+      // Add staggered animation for grid items
+      if (entry.target.classList.contains("feature-card") || entry.target.classList.contains("use-case-card")) {
+        const siblings = Array.from(entry.target.parentNode.children)
+        const index = siblings.indexOf(entry.target)
+        entry.target.style.animationDelay = `${index * 0.15}s`
       }
     }
   })
 }, observerOptions)
 
 // Observe elements for animation
-document.querySelectorAll(".feature-card, .use-case-card, .hero").forEach((el) => {
-  el.classList.add("loading")
+document.querySelectorAll(".feature-card, .use-case-card, .section-header, .stat-card").forEach((el) => {
   observer.observe(el)
 })
 
-// Tilt effect for feature cards
-document.querySelectorAll("[data-tilt]").forEach((card) => {
-  card.addEventListener("mousemove", (e) => {
-    const rect = card.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
+// Enhanced button functionality with loading states
+const createRippleEffect = (button, event) => {
+  const ripple = document.createElement("span")
+  ripple.classList.add("ripple")
 
-    const centerX = rect.width / 2
-    const centerY = rect.height / 2
+  const rect = button.getBoundingClientRect()
+  const size = Math.max(rect.width, rect.height)
+  const x = event.clientX - rect.left - size / 2
+  const y = event.clientY - rect.top - size / 2
 
-    const rotateX = (y - centerY) / 10
-    const rotateY = (centerX - x) / 10
+  ripple.style.width = ripple.style.height = size + "px"
+  ripple.style.left = x + "px"
+  ripple.style.top = y + "px"
 
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`
-  })
+  button.appendChild(ripple)
 
-  card.addEventListener("mouseleave", () => {
-    card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)"
-  })
-})
+  setTimeout(() => {
+    ripple.remove()
+  }, 600)
+}
 
-// Demo tabs functionality
-const demoTabs = document.querySelectorAll(".demo-tab")
-const demoPanels = document.querySelectorAll(".demo-panel")
+// Install button functionality with enhanced UX
+document.querySelectorAll(".btn-primary, .install-btn").forEach((button) => {
+  button.addEventListener("click", function (e) {
+    createRippleEffect(this, e)
 
-demoTabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    const targetPanel = tab.dataset.tab
+    // Add loading state
+    const originalContent = this.innerHTML
+    const btnContent = this.querySelector(".btn-content")
 
-    // Remove active class from all tabs and panels
-    demoTabs.forEach((t) => t.classList.remove("active"))
-    demoPanels.forEach((p) => p.classList.remove("active"))
+    if (btnContent) {
+      btnContent.innerHTML = `
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="animate-spin">
+          <path d="M21 12A9 9 0 1 1 12 3"/>
+        </svg>
+        <span>Installing...</span>
+      `
+    } else {
+      this.innerHTML = "<span>Installing...</span>"
+    }
 
-    // Add active class to clicked tab and corresponding panel
-    tab.classList.add("active")
-    document.getElementById(`${targetPanel}-panel`).classList.add("active")
-  })
-})
+    this.disabled = true
 
-// Stats counter animation
-const animateStats = () => {
-  const stats = document.querySelectorAll(".stat-number")
-
-  stats.forEach((stat) => {
-    const target = Number.parseFloat(stat.dataset.target)
-    const isDecimal = target % 1 !== 0
-    let current = 0
-    const increment = target / 100
-
-    const timer = setInterval(() => {
-      current += increment
-      if (current >= target) {
-        stat.textContent = isDecimal ? target.toFixed(1) : Math.floor(target)
-        clearInterval(timer)
+    setTimeout(() => {
+      if (btnContent) {
+        btnContent.innerHTML = `
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 12L11 14L15 10"/>
+            <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"/>
+          </svg>
+          <span>Redirecting...</span>
+        `
       } else {
-        stat.textContent = isDecimal ? current.toFixed(1) : Math.floor(current)
+        this.innerHTML = "<span>Redirecting...</span>"
       }
-    }, 20)
+
+      setTimeout(() => {
+        alert(
+          "🚀 Redirecting to Chrome Web Store...\n\nTextSnip extension will be available soon!\n\n✨ Features coming:\n• Smart snippet organization\n• 6 beautiful themes\n• Lightning-fast search\n• 100% privacy-focused\n\nStay tuned for updates!",
+        )
+        this.innerHTML = originalContent
+        this.disabled = false
+      }, 1500)
+    }, 2000)
+  })
+})
+
+// Demo button functionality
+document.querySelectorAll(".btn-secondary").forEach((button) => {
+  if (button.textContent.includes("Demo") || button.textContent.includes("Watch")) {
+    button.addEventListener("click", function (e) {
+      createRippleEffect(this, e)
+
+      // Create modal-like experience
+      const modal = document.createElement("div")
+      modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        backdrop-filter: blur(10px);
+      `
+
+      modal.innerHTML = `
+        <div style="
+          background: white;
+          padding: 3rem;
+          border-radius: 1.5rem;
+          max-width: 500px;
+          text-align: center;
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        ">
+          <div style="font-size: 4rem; margin-bottom: 1rem;">🎬</div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #1a1a1a;">Interactive Demo Coming Soon!</h3>
+          <p style="color: #4a5568; margin-bottom: 2rem; line-height: 1.6;">
+            We're working on an amazing interactive preview of TextSnip.<br/>
+            Get ready to experience the future of snippet management!
+          </p>
+          <button onclick="this.parentElement.parentElement.remove()" style="
+            background: linear-gradient(135deg, #F79B72 0%, #2A4759 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+          ">Got it!</button>
+        </div>
+      `
+
+      document.body.appendChild(modal)
+
+      // Close on click outside
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.remove()
+        }
+      })
+    })
+  }
+})
+
+// Enhanced card hover effects with performance optimization
+const addCardEffects = () => {
+  document.querySelectorAll(".feature-card, .use-case-card").forEach((card) => {
+    card.addEventListener("mouseenter", function () {
+      this.style.transform = "translateY(-8px)"
+    })
+
+    card.addEventListener("mouseleave", function () {
+      this.style.transform = "translateY(0)"
+    })
   })
 }
 
-console.log("🚀 TextSnip website loaded with enhanced interactivity!")
+// Initialize card effects after DOM is loaded
+document.addEventListener("DOMContentLoaded", addCardEffects)
+
+// Parallax effect for hero section (optimized)
+const heroSection = document.querySelector(".hero")
+const parallaxElements = document.querySelectorAll(".floating-element")
+
+const handleParallax = throttle(() => {
+  const scrolled = window.pageYOffset
+  const rate = scrolled * -0.3
+
+  if (heroSection && scrolled < heroSection.offsetHeight) {
+    parallaxElements.forEach((element, index) => {
+      const speed = 0.3 + index * 0.1
+      element.style.transform = `translateY(${rate * speed}px) rotate(${scrolled * 0.05}deg)`
+    })
+  }
+}, 16) // 60fps
+
+window.addEventListener("scroll", handleParallax)
+
+// Enhanced typing effect for hero title
+const typeWriter = (element, text, speed = 60) => {
+  let i = 0
+  element.innerHTML = ""
+  element.style.borderRight = "3px solid #F79B72"
+
+  const type = () => {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i)
+      i++
+      setTimeout(type, speed)
+    } else {
+      // Remove cursor after typing is complete
+      setTimeout(() => {
+        element.style.borderRight = "none"
+      }, 1000)
+    }
+  }
+
+  type()
+}
+
+// Tab switching functionality for snippet showcase
+const tabs = document.querySelectorAll(".tab")
+const snippetCards = document.querySelectorAll(".snippet-card")
+
+tabs.forEach((tab, index) => {
+  tab.addEventListener("click", () => {
+    // Remove active class from all tabs and cards
+    tabs.forEach((t) => t.classList.remove("active"))
+    snippetCards.forEach((card) => card.classList.remove("active"))
+
+    // Add active class to clicked tab and corresponding card
+    tab.classList.add("active")
+    if (snippetCards[index]) {
+      snippetCards[index].classList.add("active")
+    }
+  })
+})
+
+// Copy functionality for code examples
+document.querySelectorAll(".example-btn, .action-btn").forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation()
+
+    // Find the code content
+    const codeElement = this.closest(".use-case-example, .snippet-card").querySelector("code, .code-content")
+    if (codeElement) {
+      const text = codeElement.textContent
+
+      // Copy to clipboard
+      navigator.clipboard.writeText(text).then(() => {
+        // Show feedback
+        const originalIcon = this.innerHTML
+        this.innerHTML = `
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 12L11 14L15 10"/>
+            <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"/>
+          </svg>
+        `
+        this.style.color = "#10b981"
+
+        setTimeout(() => {
+          this.innerHTML = originalIcon
+          this.style.color = ""
+        }, 2000)
+      })
+    }
+  })
+})
+
+// Smooth reveal animation for comparison table rows
+const animateTableRows = () => {
+  const tableRows = document.querySelectorAll(".table-row")
+  tableRows.forEach((row, index) => {
+    row.style.opacity = "0"
+    row.style.transform = "translateX(-20px)"
+
+    setTimeout(() => {
+      row.style.transition = "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)"
+      row.style.opacity = "1"
+      row.style.transform = "translateX(0)"
+    }, index * 100)
+  })
+}
+
+// Initialize table animation when section comes into view
+const tableObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      animateTableRows()
+      tableObserver.unobserve(entry.target)
+    }
+  })
+})
+
+const comparisonTable = document.querySelector(".comparison-table")
+if (comparisonTable) {
+  tableObserver.observe(comparisonTable)
+}
+
+// Add dynamic styles for enhanced animations
+const addDynamicStyles = () => {
+  const style = document.createElement("style")
+  style.textContent = `
+    button {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+      transform: scale(0);
+      animation: ripple-animation 0.6s linear;
+      pointer-events: none;
+    }
+    
+    @keyframes ripple-animation {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+    
+    .animate-spin {
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    
+    /* Enhanced focus styles */
+    .nav-link:focus,
+    .btn-primary:focus,
+    .btn-secondary:focus,
+    .tab:focus,
+    .action-btn:focus {
+      outline: 2px solid #F79B72;
+      outline-offset: 2px;
+      border-radius: 0.5rem;
+    }
+    
+    /* Loading state styles */
+    button:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+    
+    /* Enhanced hover states */
+    .feature-card:hover .feature-icon,
+    .use-case-card:hover .use-case-icon {
+      animation: bounce 0.6s ease;
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 60%, 100% {
+        transform: translateY(0) scale(1) rotate(0deg);
+      }
+      40% {
+        transform: translateY(-10px) scale(1.1) rotate(5deg);
+      }
+      80% {
+        transform: translateY(-5px) scale(1.05) rotate(2deg);
+      }
+    }
+    
+    /* Improved accessibility for reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .floating-element,
+      .snippet-showcase {
+        animation: none !important;
+      }
+      
+      * {
+        transition-duration: 0.01ms !important;
+      }
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #EEEEEE;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #F79B72;
+      border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #e8845a;
+    }
+  `
+  document.head.appendChild(style)
+}
+
+// Initialize dynamic styles
+addDynamicStyles()
+
+// Performance monitoring
+const performanceObserver = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) {
+    if (entry.entryType === "navigation") {
+      console.log("Page load time:", entry.loadEventEnd - entry.loadEventStart, "ms")
+    }
+  }
+})
+
+if ("PerformanceObserver" in window) {
+  performanceObserver.observe({ entryTypes: ["navigation"] })
+}
+
+// Error handling for better user experience
+window.addEventListener("error", (e) => {
+  console.error("JavaScript error:", e.error)
+  // Could send error reports to analytics service
+})
+
+// Initialize everything when DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("🚀 TextSnip website loaded successfully!")
+
+  // Add loading animation to page
+  document.body.style.opacity = "0"
+  document.body.style.transition = "opacity 0.5s ease"
+
+  setTimeout(() => {
+    document.body.style.opacity = "1"
+  }, 100)
+})
+
+// Service Worker registration for PWA capabilities (future enhancement)
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    // navigator.serviceWorker.register('/sw.js')
+    //   .then((registration) => {
+    //     console.log('SW registered: ', registration);
+    //   })
+    //   .catch((registrationError) => {
+    //     console.log('SW registration failed: ', registrationError);
+    //   });
+  })
+}
