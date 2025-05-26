@@ -536,3 +536,238 @@ if ("serviceWorker" in navigator) {
     //   });
   })
 }
+
+// FAQ functionality
+document.addEventListener("DOMContentLoaded", () => {
+  const faqItems = document.querySelectorAll(".faq-item")
+
+  faqItems.forEach((item) => {
+    const question = item.querySelector(".faq-question")
+    const answer = item.querySelector(".faq-answer")
+
+    question.addEventListener("click", () => {
+      const isActive = item.classList.contains("active")
+
+      // Close all other FAQ items
+      faqItems.forEach((otherItem) => {
+        if (otherItem !== item) {
+          otherItem.classList.remove("active")
+          otherItem.querySelector(".faq-question").setAttribute("aria-expanded", "false")
+        }
+      })
+
+      // Toggle current item
+      if (isActive) {
+        item.classList.remove("active")
+        question.setAttribute("aria-expanded", "false")
+      } else {
+        item.classList.add("active")
+        question.setAttribute("aria-expanded", "true")
+      }
+    })
+  })
+})
+
+// Mobile-specific enhancements
+const isMobile = () => {
+  return (
+    window.innerWidth <= 768 ||
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+  )
+}
+
+// Enhanced mobile menu functionality
+document.addEventListener("DOMContentLoaded", () => {
+  if (isMobile()) {
+    // Prevent zoom on input focus for iOS
+    const viewport = document.querySelector('meta[name="viewport"]')
+    if (viewport) {
+      viewport.setAttribute("content", "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    }
+
+    // Add mobile-specific classes
+    document.body.classList.add("mobile-device")
+
+    // Optimize scroll performance on mobile
+    let ticking = false
+    const updateScrollPosition = () => {
+      // Mobile scroll optimizations
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          // Handle mobile scroll effects here
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
+    window.addEventListener("scroll", updateScrollPosition, { passive: true })
+
+    // Touch-friendly interactions
+    document.querySelectorAll(".feature-card, .use-case-card, .testimonial-card").forEach((card) => {
+      card.addEventListener(
+        "touchstart",
+        function () {
+          this.style.transform = "scale(0.98)"
+        },
+        { passive: true },
+      )
+
+      card.addEventListener(
+        "touchend",
+        function () {
+          this.style.transform = "scale(1)"
+        },
+        { passive: true },
+      )
+    })
+
+    // Mobile-optimized FAQ
+    document.querySelectorAll(".faq-question").forEach((question) => {
+      question.addEventListener(
+        "touchstart",
+        function () {
+          this.style.backgroundColor = "var(--surface)"
+        },
+        { passive: true },
+      )
+
+      question.addEventListener(
+        "touchend",
+        function () {
+          setTimeout(() => {
+            this.style.backgroundColor = ""
+          }, 150)
+        },
+        { passive: true },
+      )
+    })
+
+    // Prevent double-tap zoom on buttons
+    document.querySelectorAll("button").forEach((button) => {
+      button.addEventListener("touchend", function (e) {
+        e.preventDefault()
+        this.click()
+      })
+    })
+
+    // Mobile swipe detection for testimonials (optional enhancement)
+    let startX = 0
+    let startY = 0
+
+    document.addEventListener(
+      "touchstart",
+      (e) => {
+        startX = e.touches[0].clientX
+        startY = e.touches[0].clientY
+      },
+      { passive: true },
+    )
+
+    document.addEventListener(
+      "touchmove",
+      (e) => {
+        if (!startX || !startY) return
+
+        const xDiff = startX - e.touches[0].clientX
+        const yDiff = startY - e.touches[0].clientY
+
+        // Handle swipe gestures if needed
+        if (Math.abs(xDiff) > Math.abs(yDiff)) {
+          // Horizontal swipe
+          if (xDiff > 50) {
+            // Swipe left
+          } else if (xDiff < -50) {
+            // Swipe right
+          }
+        }
+
+        startX = 0
+        startY = 0
+      },
+      { passive: true },
+    )
+  }
+})
+
+// Mobile-optimized smooth scrolling
+const mobileScrollTo = (target) => {
+  if (isMobile()) {
+    const headerOffset = 100
+    const elementPosition = target.getBoundingClientRect().top
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    })
+  }
+}
+
+// Enhanced mobile navigation
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault()
+    const target = document.querySelector(this.getAttribute("href"))
+    if (target) {
+      if (isMobile()) {
+        // Close mobile menu if open
+        const hamburger = document.querySelector(".hamburger")
+        const navMenu = document.querySelector(".nav-menu")
+        if (hamburger && navMenu && navMenu.classList.contains("active")) {
+          hamburger.classList.remove("active")
+          navMenu.classList.remove("active")
+          hamburger.setAttribute("aria-expanded", "false")
+          document.body.style.overflow = ""
+        }
+        mobileScrollTo(target)
+      } else {
+        const headerOffset = 100
+        const elementPosition = target.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        })
+      }
+    }
+  })
+})
+
+// Mobile performance optimizations
+if (isMobile()) {
+  // Reduce animation complexity on mobile
+  const style = document.createElement("style")
+  style.textContent = `
+    @media (max-width: 768px) {
+      .floating-element {
+        animation-duration: 20s !important;
+      }
+      
+      .snippet-showcase {
+        animation: none !important;
+      }
+      
+      * {
+        transition-duration: 0.2s !important;
+      }
+    }
+  `
+  document.head.appendChild(style)
+}
+
+// Handle orientation changes
+window.addEventListener("orientationchange", () => {
+  setTimeout(() => {
+    window.scrollTo(0, window.pageYOffset)
+  }, 100)
+})
+
+// Mobile-specific error handling
+window.addEventListener("error", (e) => {
+  if (isMobile()) {
+    console.log("Mobile error detected:", e.message)
+    // Could implement mobile-specific error reporting
+  }
+})
