@@ -1,0 +1,70 @@
+# WWW to non-WWW redirects (301 permanent)
+https://www.textsnip.io/*  https://textsnip.io/:splat  301
+http://www.textsnip.io/*   https://textsnip.io/:splat  301
+
+# HTTP to HTTPS redirects (301 permanent)
+http://textsnip.io/*       https://textsnip.io/:splat  301
+
+# Common page redirects
+/home                      /                           301
+/index                     /                           301
+/index.html                /                           301
+
+# Extension store redirects (when ready)
+/chrome                    https://chrome.google.com/webstore/detail/textsnip  301
+/firefox                   https://addons.mozilla.org/en-US/firefox/addon/textsnip  301
+/edge                      https://microsoftedge.microsoft.com/addons/detail/textsnip  301
+/safari                    https://apps.apple.com/us/app/textsnip  301
+
+# Social media redirects
+/twitter                   https://twitter.com/textsnip  301
+/github                    https://github.com/textsnip  301
+/discord                   https://discord.gg/textsnip  301
+
+# Documentation redirects
+/docs                      /documentation              301
+/help                      /documentation              301
+/guide                     /documentation              301
+/tutorial                  /documentation              301
+
+# Feature-specific redirects
+/download                  /                           301
+/install                   /                           301
+/get                       /                           301
+
+# Legacy URL redirects (if migrating from another domain)
+/snippet-manager           /                           301
+/code-snippets             /                           301
+
+# API redirects (future)
+/api/v1/*                  https://api.textsnip.io/v1/:splat  301
+
+# Blog redirects (future)
+/blog/*                    https://blog.textsnip.io/:splat  301
+
+# Trailing slash normalization
+/features/                 /features                   301
+/use-cases/                /use-cases                  301
+/why-choose/               /why-choose                 301
+
+# Common typos and variations
+/textsnipp                 /                           301
+/text-snip                 /                           301
+/textsnip.com              /                           301
+
+# Old marketing campaign URLs
+/promo                     /                           301
+/launch                    /                           301
+/beta                      /                           301
+
+# Privacy and legal pages (when created)
+/privacy                   /privacy-policy             301
+/terms                     /terms-of-service           301
+/tos                       /terms-of-service           301
+
+# Contact redirects
+/contact                   /support                    301
+/support                   /help-center                301
+
+# 404 fallback - redirect unknown paths to homepage
+/*                         /                           404
