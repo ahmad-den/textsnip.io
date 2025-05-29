@@ -150,21 +150,33 @@ body {
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
-}
-
-/* Fix logo SVG styling */
-.logo-container svg {
-  display: block;
+  text-decoration: none !important;
+  outline: none;
   color: inherit;
 }
 
-.logo-container svg path,
-.logo-container svg rect {
-  fill: inherit;
-  stroke: inherit;
+/* Remove all text decoration and underlines from logo */
+.logo-container:link,
+.logo-container:visited,
+.logo-container:hover,
+.logo-container:active {
+  text-decoration: none !important;
+  color: inherit !important;
+  border: none !important;
+  outline: none !important;
 }
 
 /* Ensure logo SVG colors are not affected by link states */
+.logo-container svg rect {
+  fill: #64e2b7 !important;
+}
+
+.logo-container svg path {
+  stroke: white !important;
+  fill: none !important;
+}
+
+/* Remove any browser default link styling */
 .logo-container:link svg rect,
 .logo-container:visited svg rect,
 .logo-container:hover svg rect,
@@ -178,12 +190,6 @@ body {
 .logo-container:active svg path {
   stroke: white !important;
   fill: none !important;
-}
-
-/* Remove any text decoration or outline from logo link */
-.logo-container {
-  text-decoration: none !important;
-  outline: none;
 }
 
 .logo-container:focus {
@@ -211,7 +217,7 @@ body {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: var(--spacing-2xl);
+  gap: var(--spacing-lg); /* Changed from var(--spacing-2xl) */
 }
 
 .nav-link {
@@ -1581,7 +1587,7 @@ body {
     transition: var(--transition-normal);
     box-shadow: var(--shadow-xl);
     padding: var(--spacing-2xl) 0;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg); /* Changed from var(--spacing-xl) */
     border-top: 1px solid var(--border-color);
     height: calc(100vh - 80px);
     overflow-y: auto;
@@ -1914,10 +1920,6 @@ body {
 
   .nav-container {
     padding: 0 var(--spacing-md);
-  }
-
-  .snippet-showcase {
-    margin: 0;
   }
 
   .footer-links {
