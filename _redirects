@@ -62,9 +62,5 @@ http://textsnip.io/*       https://textsnip.io/:splat  301
 /terms                     /terms-of-service           301
 /tos                       /terms-of-service           301
 
-# Contact redirects
-/contact                   /support                    301
-/support                   /help-center                301
-
 # 404 fallback - redirect unknown paths to homepage
 /*                         /                           404
