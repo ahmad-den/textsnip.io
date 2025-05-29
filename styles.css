@@ -152,6 +152,46 @@ body {
   gap: var(--spacing-md);
 }
 
+/* Fix logo SVG styling */
+.logo-container svg {
+  display: block;
+  color: inherit;
+}
+
+.logo-container svg path,
+.logo-container svg rect {
+  fill: inherit;
+  stroke: inherit;
+}
+
+/* Ensure logo SVG colors are not affected by link states */
+.logo-container:link svg rect,
+.logo-container:visited svg rect,
+.logo-container:hover svg rect,
+.logo-container:active svg rect {
+  fill: #64e2b7 !important;
+}
+
+.logo-container:link svg path,
+.logo-container:visited svg path,
+.logo-container:hover svg path,
+.logo-container:active svg path {
+  stroke: white !important;
+  fill: none !important;
+}
+
+/* Remove any text decoration or outline from logo link */
+.logo-container {
+  text-decoration: none !important;
+  outline: none;
+}
+
+.logo-container:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
 .logo-icon {
   transition: transform var(--transition-normal);
 }
