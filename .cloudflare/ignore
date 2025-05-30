@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "Running _redirects validation check..."
+python validate_redirects.py _redirects
+
+if [ $? -ne 0 ]; then
+  echo "🛑 Validation failed. Skipping Cloudflare Pages build."
+  exit 0  # 0 = skip the build
+fi
+
+exit 1  # 1 = proceed with build
