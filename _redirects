@@ -1,72 +1,193 @@
-# WWW to non-WWW redirects (301 permanent)
-https://www.textsnip.io/*  https://textsnip.io/:splat  301
-http://www.textsnip.io/*   https://textsnip.io/:splat  301
+# SEO-Optimized Redirects for TextSnip
+# Ordered by priority and frequency for optimal performance
 
-# HTTP to HTTPS redirects (301 permanent)
-http://textsnip.io/*       https://textsnip.io/:splat  301
+# === CANONICAL URL STRUCTURE ===
+# Force HTTPS and non-WWW (handled at DNS level, but documented for reference)
+# These would be handled by Cloudflare's Always Use HTTPS setting
 
-# Common page redirects
+# === HIGH-PRIORITY REDIRECTS ===
+# Most common pages and variations
 /home                      /                           301
 /index                     /                           301
 /index.html                /                           301
+/index.php                 /                           301
+/default.html              /                           301
 
-# Fix contact page redirect
-/help-center               /contact                    301
+# === CRITICAL: SINGLE-PAGE APP ANCHOR REDIRECTS ===
+# These are the most important for your site since it's a SPA
+/features                  /#features                  301
+/why-choose                /#why-choose                301
+/use-cases                 /#use-cases                 301
+/faq                       /#faq                       301
 
-# Extension store redirects (when ready)
-/chrome                    https://chrome.google.com/webstore/detail/textsnip  301
-/firefox                   https://addons.mozilla.org/en-US/firefox/addon/textsnip  301
-/edge                      https://microsoftedge.microsoft.com/addons/detail/textsnip  301
-/safari                    https://apps.apple.com/us/app/textsnip  301
+# Additional feature-related redirects
+/benefits                  /#features                  301
+/advantages                /#why-choose                301
+/tools                     /#features                  301
+/capabilities              /#features                  301
 
-# Social media redirects
-/twitter                   https://twitter.com/textsnip  301
-/github                    https://github.com/textsnip  301
-/discord                   https://discord.gg/textsnip  301
+# === PRODUCT & FEATURE REDIRECTS ===
+# Main product pages
+/extension                 /                           301
+/browser-extension         /                           301
+/snippet-manager           /                           301
+/code-manager              /                           301
+/code-snippets             /                           301
+/snippets                  /                           301
 
-# Documentation redirects
+# === DOCUMENTATION & SUPPORT ===
 /docs                      /documentation              301
+/documentation/            /documentation              301
 /help                      /documentation              301
 /guide                     /documentation              301
 /tutorial                  /documentation              301
+/tutorials                 /documentation              301
+/manual                    /documentation              301
+/instructions              /documentation              301
+/how-to                    /documentation              301
+/getting-started           /documentation              301
+/quick-start               /documentation              301
 
-# Feature-specific redirects
+# Support and contact
+/support                   /contact                    301
+/help-center               /contact                    301
+/contact-us                /contact                    301
+/get-in-touch              /contact                    301
+/feedback                  /contact                    301
+/bug-report                /contact                    301
+/feature-request           /contact                    301
+
+# === DOWNLOAD & INSTALLATION ===
 /download                  /                           301
 /install                   /                           301
 /get                       /                           301
+/get-started               /                           301
+/try                       /                           301
+/free-download             /                           301
 
-# Legacy URL redirects (if migrating from another domain)
-/snippet-manager           /                           301
-/code-snippets             /                           301
+# Browser-specific downloads
+/chrome                    https://chrome.google.com/webstore/detail/textsnip  301
+/chrome-extension          https://chrome.google.com/webstore/detail/textsnip  301
+/firefox                   https://addons.mozilla.org/en-US/firefox/addon/textsnip  301
+/firefox-addon             https://addons.mozilla.org/en-US/firefox/addon/textsnip  301
+/edge                      https://microsoftedge.microsoft.com/addons/detail/textsnip  301
+/edge-extension            https://microsoftedge.microsoft.com/addons/detail/textsnip  301
+/safari                    https://apps.apple.com/us/app/textsnip  301
+/safari-extension          https://apps.apple.com/us/app/textsnip  301
 
-# API redirects (future)
-/api/v1/*                  https://api.textsnip.io/v1/:splat  301
+# === PRICING & BUSINESS ===
+/price                     /pricing                    301
+/pricing/                  /pricing                    301
+/cost                      /pricing                    301
+/free                      /pricing                    301
+/plans                     /pricing                    301
+/subscription              /pricing                    301
 
-# Blog redirects (future)
-/blog/*                    https://blog.textsnip.io/:splat  301
+# === LEGAL & PRIVACY ===
+/privacy                   /privacy-policy             301
+/privacy/                  /privacy-policy             301
+/privacy-policy/           /privacy-policy             301
+/terms                     /terms-of-service           301
+/terms/                    /terms-of-service           301
+/tos                       /terms-of-service           301
+/terms-of-service/         /terms-of-service           301
+/legal                     /privacy-policy             301
+/cookies                   /privacy-policy             301
+/cookie-policy             /privacy-policy             301
+/gdpr                      /privacy-policy             301
 
-# Trailing slash normalization
-/features/                 /features                   301
-/use-cases/                /use-cases                  301
-/why-choose/               /why-choose                 301
+# === COMPANY & ABOUT ===
+/about/                    /about                      301
+/about-us                  /about                      301
+/company                   /about                      301
+/team                      /about                      301
+/story                     /about                      301
+/mission                   /about                      301
 
-# Common typos and variations
+# === SOCIAL MEDIA & COMMUNITY ===
+/twitter                   https://twitter.com/textsnip  301
+/github                    https://github.com/textsnip  301
+/discord                   https://discord.gg/textsnip  301
+/community                 https://discord.gg/textsnip  301
+/social                    https://twitter.com/textsnip  301
+/follow                    https://twitter.com/textsnip  301
+
+# === BLOG & CONTENT (Future-proofing) ===
+/blog                      /                           301
+/blog/                     /                           301
+/news                      /                           301
+/updates                   /                           301
+/changelog                 /                           301
+/release-notes             /                           301
+
+# === COMMON TYPOS & VARIATIONS ===
 /textsnipp                 /                           301
 /text-snip                 /                           301
 /textsnip.com              /                           301
+/text-snippet              /                           301
+/code-snippet              /                           301
+/snippet-tool              /                           301
+/snip                      /                           301
 
-# Old marketing campaign URLs
+# === TRAILING SLASH NORMALIZATION ===
+# Remove trailing slashes for consistency
+/features/                 /#features                  301
+/why-choose/               /#why-choose                301
+/use-cases/                /#use-cases                 301
+/documentation/            /documentation              301
+/pricing/                  /pricing                    301
+/contact/                  /contact                    301
+/about/                    /about                      301
+
+# === LEGACY & CAMPAIGN URLs ===
 /promo                     /                           301
 /launch                    /                           301
 /beta                      /                           301
+/v1                        /                           301
+/v2                        /                           301
+/new                       /                           301
+/latest                    /                           301
 
-# Privacy and legal pages (when created)
-/privacy                   /privacy-policy             301
-/terms                     /terms-of-service           301
-/tos                       /terms-of-service           301
+# === FILE EXTENSIONS (Clean URLs) ===
+/index.htm                 /                           301
+/about.html                /about                      301
+/contact.html              /contact                    301
+/pricing.html              /pricing                    301
+/documentation.html        /documentation              301
+/features.html             /#features                  301
 
-# Contact redirects
-/support                   /contact                    301
+# === SEARCH-FRIENDLY REDIRECTS ===
+# Common search terms that might lead to direct URL attempts
+/code-snippet-manager      /                           301
+/browser-code-snippets     /                           301
+/developer-tools           /                           301
+/productivity-tools        /                           301
+/coding-tools              /                           301
 
-# 404 fallback - redirect unknown paths to homepage
-/*                         /                           404
+# === API & TECHNICAL REDIRECTS ===
+/api                       /documentation              301
+/api/                      /documentation              301
+/api/v1/*                  https://api.textsnip.io/v1/:splat  301
+/developers                /documentation              301
+/sdk                       /documentation              301
+
+# === MOBILE & DEVICE SPECIFIC ===
+/mobile                    /                           301
+/android                   /                           301
+/ios                       /                           301
+/desktop                   /                           301
+
+# === COMPETITOR & ALTERNATIVE REDIRECTS ===
+# Handle users looking for alternatives
+/alternative               /                           301
+/vs                        /#why-choose                301
+/comparison                /#why-choose                301
+/better-than               /#why-choose                301
+
+# === WILDCARD REDIRECTS (Keep at bottom for performance) ===
+# Blog subdomain redirect (future)
+/blog/*                    https://blog.textsnip.io/:splat  301
+
+# Catch-all for unknown paths - redirect to homepage
+# Using 302 to avoid passing link equity to homepage for random URLs
+/*                         /                           302

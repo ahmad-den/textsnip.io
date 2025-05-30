@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+    <!-- Main Sitemap -->
+    <sitemap>
+        <loc>https://textsnip.io/sitemap.xml</loc>
+        <lastmod>2025-01-30T10:00:00+00:00</lastmod>
+    </sitemap>
+    
+    <!-- Blog Sitemap (Future) -->
+    <sitemap>
+        <loc>https://textsnip.io/sitemap-blog.xml</loc>
+        <lastmod>2025-01-30T05:00:00+00:00</lastmod>
+    </sitemap>
+    
+    <!-- Images Sitemap (Future) -->
+    <sitemap>
+        <loc>https://textsnip.io/sitemap-images.xml</loc>
+        <lastmod>2025-01-30T08:00:00+00:00</lastmod>
+    </sitemap>
+    
+    <!-- News Sitemap (Future) -->
+    <sitemap>
+        <loc>https://textsnip.io/sitemap-news.xml</loc>
+        <lastmod>2025-01-30T06:00:00+00:00</lastmod>
+    </sitemap>
+    
+</sitemapindex>
