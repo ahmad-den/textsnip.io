@@ -13,12 +13,11 @@
 /why-choose                /#why-choose                301
 /use-cases                 /#use-cases                 301
 /faq                       /#faq                       301
-/contact                   /#contact                   301
-/contact-us                /#contact                   301
-/get-in-touch              /#contact                   301
-/feedback                  /#contact                   301
-/bug-report                /#contact                   301
-/feature-request           /#contact                   301
+/contact-us                /contact                   301
+/get-in-touch              /contact                   301
+/feedback                  /contact                   301
+/bug-report                /contact                   301
+/feature-request           /contact                   301
 
 # === ADDITIONAL ANCHOR VARIANTS ===
 /benefits                  /#features                  301
