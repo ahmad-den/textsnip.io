@@ -20,7 +20,7 @@
 /bug-report                /#contact                   301
 /feature-request           /#contact                   301
 
-# === ADDITIONAL KEYWORDS TO ANCHORS ===
+# === ADDITIONAL ANCHOR VARIANTS ===
 /benefits                  /#features                  301
 /tools                     /#features                  301
 /capabilities              /#features                  301
@@ -50,6 +50,9 @@
 /api                       /documentation              301
 /api/                      /documentation              301
 
+# === API WILDCARD ===
+/api/v1/*                  https://api.textsnip.io/v1/:splat  301
+
 # === DOWNLOAD & INSTALLATION ===
 /download                  /                           301
 /install                   /                           301
@@ -58,7 +61,7 @@
 /try                       /                           301
 /free-download             /                           301
 
-# === EXTENSION STORE REDIRECTS ===
+# === BROWSER STORE LINKS ===
 /chrome                    https://chrome.google.com/webstore/detail/textsnip  301
 /chrome-extension          https://chrome.google.com/webstore/detail/textsnip  301
 /firefox                   https://addons.mozilla.org/en-US/firefox/addon/textsnip  301
@@ -68,14 +71,14 @@
 /safari                    https://apps.apple.com/us/app/textsnip  301
 /safari-extension          https://apps.apple.com/us/app/textsnip  301
 
-# === PRICING & PLANS ===
+# === PRICING ===
 /price                     /pricing                    301
 /cost                      /pricing                    301
 /free                      /pricing                    301
 /plans                     /pricing                    301
 /subscription              /pricing                    301
 
-# === LEGAL & PRIVACY ===
+# === LEGAL ===
 /privacy                   /privacy-policy             301
 /privacy-policy            /privacy-policy             301
 /terms                     /terms-of-service           301
@@ -86,8 +89,7 @@
 /cookie-policy             /privacy-policy             301
 /gdpr                      /privacy-policy             301
 
-# === COMPANY & ABOUT ===
-/about                     /about                      301
+# === COMPANY INFO ===
 /about-us                  /about                      301
 /company                   /about                      301
 /team                      /about                      301
@@ -108,7 +110,6 @@
 /updates                   /                           301
 /changelog                 /                           301
 /release-notes             /                           301
-/blog/*                    https://blog.textsnip.io/:splat  301
 
 # === COMMON TYPOS & VARIATIONS ===
 /textsnipp                 /                           301
@@ -126,7 +127,7 @@
 /productivity-tools        /                           301
 /coding-tools              /                           301
 
-# === LEGACY & CAMPAIGN URLS ===
+# === LEGACY & CAMPAIGN ===
 /promo                     /                           301
 /launch                    /                           301
 /beta                      /                           301
@@ -135,10 +136,7 @@
 /new                       /                           301
 /latest                    /                           301
 
-# === API V1 Wildcard ===
-/api/v1/*                  https://api.textsnip.io/v1/:splat  301
-
-# === DEVICE-SPECIFIC ===
+# === DEVICE & PLATFORM ===
 /mobile                    /                           301
 /android                   /                           301
 /ios                       /                           301
@@ -150,5 +148,8 @@
 /comparison                /#why-choose                301
 /better-than               /#why-choose                301
 
+# === BLOG SUBDOMAIN (WILDCARD) ===
+/blog/*                    https://blog.textsnip.io/:splat  301
+
 # === SPA FALLBACK ===
-/*                         /index.html                 200
+/*                         /index.html                 200!
