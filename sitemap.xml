@@ -1,153 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+        http://www.google.com/schemas/sitemap-image/1.1
+        http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
     
-    <!-- Homepage -->
+    <!-- ========================================= -->
+    <!-- CORE PAGES - HIGHEST PRIORITY            -->
+    <!-- ========================================= -->
+    
+    <!-- Homepage - Primary Landing Page -->
     <url>
         <loc>https://textsnip.io/</loc>
-        <lastmod>2025-01-27</lastmod>
-        <changefreq>weekly</changefreq>
+        <lastmod>2025-01-30T10:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
         <priority>1.0</priority>
+        <!-- Images will be added when available -->
     </url>
     
-    <!-- Main Features -->
-    <url>
-        <loc>https://textsnip.io/#features</loc>
-        <lastmod>2025-01-27</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
+    <!-- ========================================= -->
+    <!-- PRODUCT PAGES - HIGH PRIORITY            -->
+    <!-- ========================================= -->
     
-    <url>
-        <loc>https://textsnip.io/#why-choose</loc>
-        <lastmod>2025-01-27</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://textsnip.io/#use-cases</loc>
-        <lastmod>2025-01-27</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- Product Pages -->
+    <!-- Documentation - Critical for User Success -->
     <url>
         <loc>https://textsnip.io/documentation</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-01-30T09:30:00+00:00</lastmod>
         <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+        <image:image>
+            <image:loc>https://textsnip.io/images/documentation-preview.jpg</image:loc>
+            <image:title>TextSnip Documentation</image:title>
+            <image:caption>Complete guide to using TextSnip</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Pricing - Key Conversion Page -->
+    <url>
+        <loc>https://textsnip.io/pricing</loc>
+        <lastmod>2025-01-30T09:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://textsnip.io/images/pricing-preview.jpg</image:loc>
+            <image:title>TextSnip Pricing - Free Forever</image:title>
+            <image:caption>TextSnip is completely free with no hidden costs</image:caption>
+        </image:image>
     </url>
     
-    <url>
-        <loc>https://textsnip.io/changelog</loc>
-        <lastmod>2025-01-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
+    <!-- ========================================= -->
+    <!-- COMPANY PAGES - MEDIUM-HIGH PRIORITY     -->
+    <!-- ========================================= -->
     
-    <url>
-        <loc>https://textsnip.io/roadmap</loc>
-        <lastmod>2025-01-27</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    
-    <!-- Support Pages -->
-    <url>
-        <loc>https://textsnip.io/help-center</loc>
-        <lastmod>2025-01-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://textsnip.io/contact</loc>
-        <lastmod>2025-01-27</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    
-    <url>
-        <loc>https://textsnip.io/bug-reports</loc>
-        <lastmod>2025-01-27</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    
-    <url>
-        <loc>https://textsnip.io/feature-requests</loc>
-        <lastmod>2025-01-27</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    
-    <url>
-        <loc>https://textsnip.io/community</loc>
-        <lastmod>2025-01-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    
-    <!-- Company Pages -->
+    <!-- About - Company Information -->
     <url>
         <loc>https://textsnip.io/about</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-01-30T08:00:00+00:00</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://textsnip.io/images/about-team.jpg</image:loc>
+            <image:title>About TextSnip Team</image:title>
+            <image:caption>Meet the team behind TextSnip</image:caption>
+        </image:image>
     </url>
     
+    <!-- Contact - Support & Communication -->
     <url>
-        <loc>https://textsnip.io/blog</loc>
-        <lastmod>2025-01-27</lastmod>
-        <changefreq>weekly</changefreq>
+        <loc>https://textsnip.io/contact</loc>
+        <lastmod>2025-01-30T08:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
-    <url>
-        <loc>https://textsnip.io/careers</loc>
-        <lastmod>2025-01-27</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
+    <!-- ========================================= -->
+    <!-- LEGAL & COMPLIANCE - LOWER PRIORITY      -->
+    <!-- ========================================= -->
     
-    <url>
-        <loc>https://textsnip.io/press-kit</loc>
-        <lastmod>2025-01-27</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    
-    <url>
-        <loc>https://textsnip.io/partners</loc>
-        <lastmod>2025-01-27</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    
-    <!-- Legal Pages -->
+    <!-- Privacy Policy - Important for Trust -->
     <url>
         <loc>https://textsnip.io/privacy-policy</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-01-30T01:00:00+00:00</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
     
+    <!-- Terms of Service -->
     <url>
         <loc>https://textsnip.io/terms-of-service</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-01-30T01:00:00+00:00</lastmod>
         <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.45</priority>
     </url>
     
+    <!-- Cookie Policy -->
     <url>
         <loc>https://textsnip.io/cookie-policy</loc>
-        <lastmod>2025-01-27</lastmod>
+        <lastmod>2025-01-30T01:00:00+00:00</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.4</priority>
+    </url>
+    
+    <!-- GDPR Compliance -->
+    <url>
+        <loc>https://textsnip.io/gdpr</loc>
+        <lastmod>2025-01-30T01:00:00+00:00</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.35</priority>
+    </url>
+    
+    <!-- ========================================= -->
+    <!-- SPECIAL PAGES - VARIOUS PRIORITIES       -->
+    <!-- ========================================= -->
+    
+    <!-- Security -->
+    <url>
+        <loc>https://textsnip.io/security</loc>
+        <lastmod>2025-01-30T01:30:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.55</priority>
+    </url>
+    
+    <!-- Status Page -->
+    <url>
+        <loc>https://textsnip.io/status</loc>
+        <lastmod>2025-01-30T01:30:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.4</priority>
+    </url>
+    
+    <!-- Sitemap (Self-Reference) -->
+    <url>
+        <loc>https://textsnip.io/sitemap.xml</loc>
+        <lastmod>2025-01-30T10:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.3</priority>
     </url>
     
 </urlset>

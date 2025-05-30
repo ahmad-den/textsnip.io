@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Homepage Images -->
+    <url>
+        <loc>https://textsnip.io/</loc>
+        <image:image>
+            <image:loc>https://textsnip.io/images/hero-screenshot.jpg</image:loc>
+            <image:title>TextSnip Interface Screenshot</image:title>
+            <image:caption>Clean and intuitive interface for managing code snippets</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://textsnip.io/images/features-overview.jpg</image:loc>
+            <image:title>TextSnip Features Overview</image:title>
+            <image:caption>All features of TextSnip code snippet manager</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://textsnip.io/images/browser-extension.jpg</image:loc>
+            <image:title>TextSnip Browser Extension</image:title>
+            <image:caption>TextSnip running as a browser extension</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Documentation Images -->
+    <url>
+        <loc>https://textsnip.io/documentation</loc>
+        <image:image>
+            <image:loc>https://textsnip.io/images/installation-guide.jpg</image:loc>
+            <image:title>Installation Guide</image:title>
+            <image:caption>Step-by-step installation process</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://textsnip.io/images/quick-start.jpg</image:loc>
+            <image:title>Quick Start Guide</image:title>
+            <image:caption>Get started with TextSnip in minutes</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- About Page Images -->
+    <url>
+        <loc>https://textsnip.io/about</loc>
+        <image:image>
+            <image:loc>https://textsnip.io/images/team-photo.jpg</image:loc>
+            <image:title>TextSnip Team</image:title>
+            <image:caption>The passionate team behind TextSnip</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://textsnip.io/images/company-values.jpg</image:loc>
+            <image:title>Our Values</image:title>
+            <image:caption>Privacy-first, developer-focused values</image:caption>
+        </image:image>
+    </url>
+    
+</urlset>

@@ -1,30 +1,116 @@
+# Robots.txt for TextSnip - Code Snippet Manager
+# Updated: January 2025
+
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://textsnip.io/sitemap.xml
+# Allow all main pages
+Allow: /index.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /documentation.html
+Allow: /pricing.html
+Allow: /privacy-policy.html
 
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
-
-# Disallow admin or private areas (if any)
+# Block admin, private, and system directories
 Disallow: /admin/
 Disallow: /private/
 Disallow: /_next/
 Disallow: /api/
-
-# Allow important pages
-Allow: /
-Allow: /about
-Allow: /documentation
-Allow: /help-center
-Allow: /contact
-Allow: /blog
-Allow: /careers
-Allow: /privacy-policy
-Allow: /terms-of-service
-
-# Block common bot traps
-Disallow: /cgi-bin/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /temp/
 Disallow: /tmp/
 Disallow: /logs/
+Disallow: /cache/
+
+# Block common bot traps and unnecessary files
+Disallow: /cgi-bin/
+Disallow: /*.log$
+Disallow: /*.tmp$
+Disallow: /*.bak$
+Disallow: /*?*utm_*
+Disallow: /*?*ref=*
+Disallow: /*?*fbclid=*
+Disallow: /*?*gclid=*
+
+# Block duplicate content (trailing slashes handled by redirects)
+Disallow: /*/
+Disallow: /*.html/
+
+# Allow CSS, JS, and images for proper rendering
+Allow: /styles.css
+Allow: /script.js
+Allow: /js/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.webp
+Allow: /*.ico
+Allow: /*.woff
+Allow: /*.woff2
+
+# Sitemap location
+Sitemap: https://textsnip.io/sitemap.xml
+
+# Crawl-delay for respectful crawling (1 second)
+Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Block aggressive crawlers
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+User-agent: DotBot
+Disallow: /
+
+# Block AI training bots (optional - uncomment if desired)
+# User-agent: GPTBot
+# Disallow: /
+# 
+# User-agent: ChatGPT-User
+# Disallow: /
+# 
+# User-agent: CCBot
+# Disallow: /
+# 
+# User-agent: anthropic-ai
+# Disallow: /
+# 
+# User-agent: Claude-Web
+# Disallow: /
+
+# Social media crawlers (allow for proper sharing)
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
