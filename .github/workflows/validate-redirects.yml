@@ -1,28 +1,29 @@
 name: Validate Redirects
 
 on:
-  push:
+  pull_request:
     paths:
       - '_redirects'
       - 'validate_redirects.py'
-  pull_request:
+  push:
+    branches: [main]
     paths:
       - '_redirects'
       - 'validate_redirects.py'
 
 jobs:
-  redirects-validation:
+  redirect-validator:
+    name: Redirect Validator
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11
+          python-version: '3.11'
 
-      - name: Run redirect validator
+      - name: Run validator
         run: python validate_redirects.py _redirects
-
