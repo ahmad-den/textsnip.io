@@ -13,11 +13,13 @@
 /why-choose                /#why-choose                301
 /use-cases                 /#use-cases                 301
 /faq                       /#faq                       301
-/contact-us                /contact                   301
-/get-in-touch              /contact                   301
-/feedback                  /contact                   301
-/bug-report                /contact                   301
-/feature-request           /contact                   301
+
+# === CONTACT REDIRECTS ===
+/contact-us                /contact                    301
+/get-in-touch              /contact                    301
+/feedback                  /contact                    301
+/bug-report                /contact                    301
+/feature-request           /contact                    301
 
 # === ADDITIONAL ANCHOR VARIANTS ===
 /benefits                  /#features                  301
@@ -79,10 +81,8 @@
 
 # === LEGAL ===
 /privacy                   /privacy-policy             301
-/privacy-policy            /privacy-policy             301
 /terms                     /terms-of-service           301
 /tos                       /terms-of-service           301
-/terms-of-service          /terms-of-service           301
 /legal                     /privacy-policy             301
 /cookies                   /privacy-policy             301
 /cookie-policy             /privacy-policy             301
